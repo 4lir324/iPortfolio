@@ -1,0 +1,185 @@
+/* تنظیمات کلی */
+body {
+    margin: 0;
+    padding: 0;
+    background: #141414; /* پس‌زمینه تیره */
+    color: #e0e0e0; /* متن روشن */
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+h1 {
+    text-align: center;
+    color: #4caf50; /* رنگ سبز */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.table-wrapper {
+    overflow-x: auto; /* اسکرول افقی در صورت نیاز */
+    border-radius: 3px; /* گوشه‌های گرد برای کل جدول */
+    border: 0.5px solid #444; /* بوردر نازک‌تر */
+}
+
+table {
+    width: 100%;
+    border-collapse: separate; /* اجازه دادن به گوشه‌های گرد */
+    border-spacing: 0; /* حذف فاصله بین سلول‌ها */
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border: 0.5px solid #444; /* بوردر نازک‌تر برای سلول‌ها */
+}
+
+th {
+    background: #252525; /* پس‌زمینه هدر جدول */
+    color: #a0a0a0; /* متن خاکستری روشن */
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background: #1c1c1c; /* پس‌زمینه ردیف‌های زوج */
+}
+
+tr:hover {
+    background: #333333; /* افکت هاور ملایم */
+}
+
+td {
+    color: #e0e0e0; /* متن جدول */
+}
+
+.profit-positive {
+    color: #4caf50; /* رنگ سبز برای سود */
+    font-weight: bold;
+}
+
+.profit-negative {
+    color: #f44336; /* رنگ قرمز برای زیان */
+    font-weight: bold;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 1rem;
+    color: #ffffff;
+    background: #4caf50; /* دکمه سبز */
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 10px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.button:hover {
+    background: #45a047; /* تغییر رنگ در هاور */
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
+}
+
+@media screen and (max-width: 768px) {
+    .table-wrapper {
+        overflow-x: auto; /* فعال کردن اسکرول افقی فقط در موبایل */
+    }
+
+    table {
+        font-size: 0.9rem; /* کاهش اندازه متن جدول در موبایل */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .button {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+    }
+}
+
+/* استایل فرم */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #1e1e1e; /* پس‌زمینه فرم */
+    padding: 20px;
+    border-radius: 10px; /* گوشه‌های گرد فرم */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #a0a0a0; /* رنگ متن لیبل */
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #333333; /* بوردر نازک */
+    border-radius: 10px; /* گوشه‌های گرد */
+    background: #252525; /* پس‌زمینه اینپوت */
+    color: #ffffff; /* رنگ متن */
+    font-size: 1rem;
+    box-sizing: border-box; /* رفع مشکل عرض */
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #4caf50; /* تغییر رنگ بوردر هنگام فوکوس */
+    outline: none;
+}
+
+input::placeholder {
+    color: #a0a0a0; /* رنگ متن Placeholder */
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 1rem;
+    color: #ffffff;
+    background: #4caf50; /* دکمه سبز */
+    border: none;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 10px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.button:hover {
+    background: #45a047; /* تغییر رنگ در هاور */
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
+}
+

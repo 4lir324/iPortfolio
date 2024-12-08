@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+    // به‌روزرسانی خودکار صفحه هر 60 ثانیه
+        setInterval(function() {
+            window.location.reload(); // بارگذاری مجدد صفحه
+        }, 60000); // 60000 میلی‌ثانیه = 1 دقیقه
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>My Crypto Portfolio</h1>
+
+        <!-- جدول اصلی -->
+        <table>
+            <thead>
+                <tr>
+<!--                    <th>Coin Name</th>-->
+                    <th>Symbol</th>
+                    <th>Quantity</th>
+<!--                    <th>Buy Price (USD)</th>-->
+                    <th>CP</th>
+                    <th>TA</th>
+                    <th>Profit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for coin in coins %}
+                <tr>
+<!--                    <td>{{ coin.name }}</td>-->
+                    <td>{{ coin.symbol }}</td>
+                    <td>{{ coin.quantity }}</td>
+<!--                    <td>${{ coin.buy_price }}</td>-->
+                    <td>${{ coin.current_price }}</td>
+                    <td>${{ coin.total_amount }}</td>
+                    <td class="{% if coin.profit_percent > 0 %}profit-positive{% else %}profit-negative{% endif %}">
+                        {{ coin.profit_percent }}%
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="buttons">
+            <a href="{{ url_for('edit_portfolio') }}" class="button">Edit Portfolio</a>
+        </div>
+        <!-- جدول جدید برای جمع کل -->
+        <h2>Total Summary</h2>
+        <table>
+<!--            <thead>-->
+<!--                <tr>-->
+<!--                    <th>Total Amount (USD)</th>-->
+<!--                    <th>${{ total_sum }}</th>-->
+<!--                </tr>-->
+<!--            </thead>-->
+            <tbody>
+                <tr>
+                    <td>Total Amount (USD)</td>
+                    <td>${{ total_sum }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>

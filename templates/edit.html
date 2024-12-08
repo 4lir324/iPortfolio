@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        // تأیید حذف
+        function confirmDelete(event) {
+            if (!confirm("Are you sure you want to delete this coin?")) {
+                event.preventDefault(); // لغو ارسال فرم
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Portfolio</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Coin Name</th>
+                    <th>Symbol</th>
+                    <th>Wallet</th>
+                    <th>Buy Price</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for coin in coins %}
+                <tr>
+                    <td>{{ coin['name'] }}</td>
+                    <td>{{ coin['symbol'] }}</td>
+                    <td>{{ coin['wallet_name'] }}</td>
+                    <td>${{ coin['buy_price'] }}</td>
+                    <td>{{ coin['quantity'] }}</td>
+                    <td>
+                        <a href="{{ url_for('update_coin', id=coin['id']) }}" class="button">Edit</a>
+                        <form method="POST" action="{{ url_for('delete_coin', id=coin['id']) }}" style="display: inline;">
+                            <button type="submit" class="button" onclick="confirmDelete(event)">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="buttons">
+            <a href="{{ url_for('index') }}" class="button">Back to Home</a>
+            <a href="{{ url_for('add_coin') }}" class="button">Add Coin</a>
+        </div>
+    </div>
+</body>
+</html>
